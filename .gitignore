@@ -34,3 +34,6 @@ Icon
 # Files that might appear on external disk
 .Spotlight-V100
 .Trashes
+
+target/classes/.netbeans_automatic_build
+target/test-classes/.netbeans_automatic_build

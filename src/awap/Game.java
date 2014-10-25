@@ -61,7 +61,7 @@ public class Game
         if(moveset.isEmpty())
             return null;
         
-        Collections.shuffle(moveset);
+        //Collections.shuffle(moveset);
         Move bestMove = moveset.get(0);
         int max = score(bestMove);
         
@@ -72,6 +72,7 @@ public class Game
             {
                 bestMove = m;
                 max = score;
+                Logger.log(m.toString());
             }
         }
         

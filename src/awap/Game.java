@@ -37,7 +37,7 @@ public class Game
 
     private Move findMove()
     {
-        Logger.log("testing123123123123");
+        System.err.println("testing123123123123");
         return null;
         
         int N = state.getDimension();

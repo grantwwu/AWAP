@@ -37,6 +37,9 @@ public class Game
 
     private Move findMove()
     {
+        Logger.log("testing123123123123");
+        return null;
+        
         int N = state.getDimension();
         List<Block> blocks = state.getBlocks().get(number);
         

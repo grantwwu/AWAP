@@ -55,4 +55,9 @@ public class Block
 
         return block;
     }
+    
+    public int getSize()
+    {
+        return offsets.size();
+    }
 }

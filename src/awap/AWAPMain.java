@@ -12,8 +12,7 @@ public class AWAPMain
 
     public static void main(String[] args) throws IOException
     {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(
-                System.in));
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         String input;
         Game game = new Game();
         ObjectMapper objectMapper = new ObjectMapper();

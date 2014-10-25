@@ -5,18 +5,24 @@ import java.util.Map;
 
 import com.google.common.base.Optional;
 import com.google.common.collect.Lists;
+import java.util.ArrayList;
 
 public class State
 {
     private Optional<String> error = Optional.absent();
-    private Optional<Integer> playerID = Optional.absent();
+    //IGNORE THIS FIELD
+    private Optional<Integer> number = Optional.absent(); 
+    /* -2
+     * -1 means empty
+     * 0-3 means occupied by said player */
     private List<List<Integer>> board;
+    // Blocks[i] is the list of blocks for player i
     private List<List<Block>> blocks;
-    private int dimension;
-    private int turn;
-    private int move = -1;
-    private String url;
-    private List<List<Integer>> bonusSquares;
+    private int dimension; //Equals 20
+    private int turn; //Means whose turn it is
+    private int move = -1; //1: expecting a move, otherwise: not expecting move.
+    private String url; //Why is this in state?
+    private List<List<Integer>> bonusSquares; //List of coordinates
 
     public String getUrl()
     {
@@ -38,14 +44,14 @@ public class State
         this.error = Optional.fromNullable(error);
     }
 
-    public Optional<Integer> getPlayerID()
+    public Optional<Integer> getNumber()
     {
-        return playerID;
+        return number;
     }
 
-    public void setPlayerID(int playerID)
+    public void setNumber(int playerID)
     {
-        this.playerID = Optional.fromNullable(playerID);
+        this.number = Optional.fromNullable(playerID);
     }
 
     public List<List<Integer>> getBoard()
@@ -115,6 +121,16 @@ public class State
     public List<List<Integer>> getBonusSquares()
     {
         return bonusSquares;
+    }
+    
+    public List<Point> getBonusSquaresPoints()
+    {
+        List<Point> ret = new ArrayList<>(bonusSquares.size());
+        for(List<Integer> tuple : bonusSquares)
+        {
+            ret.add(new Point(tuple.get(0), tuple.get(1)));
+        }
+        return ret;
     }
 
     public void setPlayers(List<String> players)

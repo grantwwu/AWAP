@@ -39,7 +39,6 @@ public class Game
     {
         int N = state.getDimension();
         List<Block> blocks = state.getBlocks().get(number);
-        Collections.shuffle(blocks);
         
         List<Move> moveset = new LinkedList<>();
         for (int x = 0; x < N; x++)
@@ -62,6 +61,7 @@ public class Game
         if(moveset.isEmpty())
             return null;
         
+        Collections.shuffle(moveset);
         Move bestMove = moveset.get(0);
         int max = score(bestMove);
         

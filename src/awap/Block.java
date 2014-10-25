@@ -6,41 +6,53 @@ import java.util.Map;
 import com.google.common.base.Function;
 import com.google.common.collect.Lists;
 
-public class Block {
-	private List<Point> offsets;
+public class Block
+{
 
-	public Block() {
-	}
+    private List<Point> offsets;
 
-	public Block(List<Map<String, Integer>> offsets) {
-		this.offsets = Lists.transform(offsets,
-				new Function<Map<String, Integer>, Point>() {
-					public Point apply(Map<String, Integer> map) {
-						return new Point(map);
-					}
-				});
-	}
+    public Block()
+    {
+    }
 
-	public List<Point> getOffsets() {
-		return offsets;
-	}
+    public Block(List<Map<String, Integer>> offsets)
+    {
+        this.offsets = Lists.transform(offsets,
+                new Function<Map<String, Integer>, Point>()
+                {
+                    public Point apply(Map<String, Integer> map)
+                    {
+                        return new Point(map);
+                    }
+                });
+    }
 
-	public void setOffsets(List<Point> offsets) {
-		this.offsets = offsets;
-	}
+    public List<Point> getOffsets()
+    {
+        return offsets;
+    }
 
-	public Block rotate(final int rotations) {
-		if (rotations == 0) {
-			return this;
-		}
+    public void setOffsets(List<Point> offsets)
+    {
+        this.offsets = offsets;
+    }
 
-		Block block = new Block();
-		block.setOffsets(Lists.transform(offsets, new Function<Point, Point>() {
-			public Point apply(Point p) {
-				return p.rotate(rotations);
-			}
-		}));
+    public Block rotate(final int rotations)
+    {
+        if (rotations == 0)
+        {
+            return this;
+        }
 
-		return block;
-	}
+        Block block = new Block();
+        block.setOffsets(Lists.transform(offsets, new Function<Point, Point>()
+        {
+            public Point apply(Point p)
+            {
+                return p.rotate(rotations);
+            }
+        }));
+
+        return block;
+    }
 }
